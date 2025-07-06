@@ -1,12 +1,8 @@
-import sys
-import os
 import pytest
 import requests
 import uuid
 from data.urls import *
 
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "data")))
 @pytest.fixture
 def create_user_and_delete():
     email = f"test_{uuid.uuid4().hex[:8]}@example.com"
@@ -33,6 +29,4 @@ def create_user_and_delete():
     delete_response = requests.delete(DELETE_USER_URL, headers=headers)
     assert delete_response.status_code == 202 or delete_response.status_code == 200
 
-    sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "data")))
 
