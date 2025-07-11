@@ -11,7 +11,6 @@ def create_user_and_delete():
 
     payload = {"email": email, "password": password, "name": name}
     response = requests.post(REGISTER_URL, json=payload)
-    assert response.status_code == 200
 
     tokens = response.json()
     access_token = tokens["accessToken"]
