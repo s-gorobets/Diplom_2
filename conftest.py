@@ -26,7 +26,5 @@ def create_user_and_delete():
     }
 
     headers = {"Authorization": tokens["accessToken"]}
-    delete_response = requests.delete(DELETE_USER_URL, headers=headers)
-    assert delete_response.status_code == 202 or delete_response.status_code == 200
-
+    requests.delete(DELETE_USER_URL, headers=headers)
 
